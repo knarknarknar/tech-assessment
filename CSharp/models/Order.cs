@@ -1,5 +1,5 @@
 
-namespace OrderApi.Models
+namespace models
 {
     public class Order
     {
