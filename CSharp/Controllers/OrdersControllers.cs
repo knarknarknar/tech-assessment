@@ -1,9 +1,9 @@
 
 using Microsoft.AspNetCore.Mvc;
-using models;
+using CSharp.models;
 using System.Linq;
 
-namespace Controllers
+namespace CSharp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
