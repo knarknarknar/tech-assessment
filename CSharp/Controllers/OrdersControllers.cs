@@ -1,6 +1,6 @@
 
 using Microsoft.AspNetCore.Mvc;
-using OrderApi.Models;
+using models;
 using System.Linq;
 
 namespace Controllers
