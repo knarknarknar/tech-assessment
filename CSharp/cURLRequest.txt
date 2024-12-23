@@ -17,3 +17,22 @@ curl -X POST https://localhost:5001/api/orders \
   "price": 1200.50,
   "orderDate": "2024-12-23T00:00:00"
 }
+
+----------------------
+List order by customer endpoint
+
+curl -X GET https://localhost:5001/api/orders/customer/John%20Doe
+
+RESPONSE
+[
+  {
+    "id": 1,
+    "customerName": "John Doe",
+    "product": "Laptop",
+    "quantity": 1,
+    "price": 1200.50,
+    "orderDate": "2024-12-23T00:00:00"
+  }
+]
+
+
