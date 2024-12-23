@@ -82,5 +82,23 @@ namespace OrderApi.Controllers
 
             return Ok(existingOrder); // Return the updated order
         }
+
+        // DELETE: api/orders/{id}
+        [HttpDelete("{id}")]
+        public IActionResult CancelOrder(int id)
+        {
+            // Find the order to cancel
+            var order = Orders.FirstOrDefault(o => o.Id == id);
+            if (order == null)
+            {
+                return NotFound($"Order with ID {id} not found");
+            }
+
+            // Remove the order from the list (simulating cancellation)
+            Orders.Remove(order);
+
+            // Return a 200 OK response confirming the cancellation
+            return Ok($"Order with ID {id} has been cancelled");
+        }
     }
 }
