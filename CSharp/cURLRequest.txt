@@ -35,4 +35,26 @@ RESPONSE
   }
 ]
 
+------------------------
+UPDATE ENDPOINT TEST
+
+curl -X PUT https://localhost:5001/api/orders/1 \
+    -H "Content-Type: application/json" \
+    -d '{
+        "customerName": "John Doe",
+        "product": "Laptop",
+        "quantity": 1,
+        "price": 1200.50,
+        "orderDate": "2024-12-23T00:00:00"
+    }'
+RESPONSE
+{
+    "id": 1,
+    "customerName": "John Doe",
+    "product": "Laptop",
+    "quantity": 2,
+    "price": 1400.00,
+    "orderDate": "2024-12-23T00:00:00"
+}
+
 
