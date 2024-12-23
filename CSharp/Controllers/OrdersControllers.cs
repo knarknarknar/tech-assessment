@@ -1,9 +1,9 @@
-// Controllers/OrdersController.cs
+
 using Microsoft.AspNetCore.Mvc;
 using OrderApi.Models;
 using System.Linq;
 
-namespace OrderApi.Controllers
+namespace Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
