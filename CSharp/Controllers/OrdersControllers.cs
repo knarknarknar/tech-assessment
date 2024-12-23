@@ -1,6 +1,7 @@
-
+// Controllers/OrdersController.cs
 using Microsoft.AspNetCore.Mvc;
 using OrderApi.Models;
+using System.Linq;
 
 namespace OrderApi.Controllers
 {
@@ -40,6 +41,20 @@ namespace OrderApi.Controllers
                 return NotFound();
             }
             return Ok(order);
+        }
+
+        // GET: api/orders/customer/{customerName}
+        [HttpGet("customer/{customerName}")]
+        public IActionResult GetOrdersByCustomer(string customerName)
+        {
+            var customerOrders = Orders.Where(o => o.CustomerName.Equals(customerName, StringComparison.OrdinalIgnoreCase)).ToList();
+            
+            if (!customerOrders.Any())
+            {
+                return NotFound($"No orders found for customer {customerName}");
+            }
+
+            return Ok(customerOrders);
         }
     }
 }
