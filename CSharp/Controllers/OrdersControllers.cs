@@ -56,5 +56,31 @@ namespace OrderApi.Controllers
 
             return Ok(customerOrders);
         }
+
+        // PUT: api/orders/{id}
+        [HttpPut("{id}")]
+        public IActionResult UpdateOrder(int id, [FromBody] Order updatedOrder)
+        {
+            if (updatedOrder == null)
+            {
+                return BadRequest("Order data is null");
+            }
+
+            // Find the existing order
+            var existingOrder = Orders.FirstOrDefault(o => o.Id == id);
+            if (existingOrder == null)
+            {
+                return NotFound($"Order with ID {id} not found");
+            }
+
+            // Update the order details
+            existingOrder.CustomerName = updatedOrder.CustomerName ?? existingOrder.CustomerName;
+            existingOrder.Product = updatedOrder.Product ?? existingOrder.Product;
+            existingOrder.Quantity = updatedOrder.Quantity > 0 ? updatedOrder.Quantity : existingOrder.Quantity;
+            existingOrder.Price = updatedOrder.Price > 0 ? updatedOrder.Price : existingOrder.Price;
+            existingOrder.OrderDate = updatedOrder.OrderDate != default ? updatedOrder.OrderDate : existingOrder.OrderDate;
+
+            return Ok(existingOrder); // Return the updated order
+        }
     }
 }
