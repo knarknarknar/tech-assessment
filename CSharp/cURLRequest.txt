@@ -56,5 +56,14 @@ RESPONSE
     "price": 1400.00,
     "orderDate": "2024-12-23T00:00:00"
 }
+----------------------
+CANCEL ORDER TEST
 
+curl -X DELETE https://localhost:5001/api/orders/1
+
+RESPONSE
+
+{
+  "message": "Order with ID 1 has been cancelled"
+}
 
