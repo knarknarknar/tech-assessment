@@ -1,0 +1,19 @@
+curl -X POST https://localhost:5001/api/orders \
+    -H "Content-Type: application/json" \
+    -d '{
+        "CustomerName": "John Doe",
+        "Product": "Laptop",
+        "Quantity": 1,
+        "Price": 1200.50,
+        "OrderDate": "2024-12-23T00:00:00"
+    }'
+
+    RESPONSE
+    {
+  "id": 1,
+  "customerName": "John Doe",
+  "product": "Laptop",
+  "quantity": 1,
+  "price": 1200.50,
+  "orderDate": "2024-12-23T00:00:00"
+}
